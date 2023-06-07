@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .dropdown-content {
+            display: none;
+        }
+
+        .dropdown-content-1 {
+            display: none;
+        }
+
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-white">
+        <nav class="bg-red-500 border-red-200 dark:bg-red-500 dark:border-red-500">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-2.5">
+                <a href="/gicadmin/homepage" class="flex items-center">
+                    <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" /> -->
+                    <span
+                        class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white hover:text-black">Admin</span>
+                </a>
+                <button data-collapse-toggle="navbar-dropdown" type="button"
+                    class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-dropdown" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <div class="w-full border-red-2 rounded-lg md:block md:w-auto" id="navbar-dropdown">
+                    <ul
+                        class="w-[70%] text-center flex flex-col font-semibold p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm">
+                        <li class="mt-[15px]">
+                            <a href="/admin/homepage"
+                                class="block py-2 pl-3 pr-4 text-white bg-red-500 text-2xl rounded md:bg-transparent md:text-white md:p-0 md:dark:text-white md:dark:bg-transparent hover:text-black"
+                                aria-current="page">Home</a>
+                        </li>
+                        <li class="mt-[15px]">
+                            <button onclick="myFunction()"
+                                class="dropbtn w-full border-red-2 rounded-lg flex items-center justify-between py-2 pl-3 pr-4 text-2xl text-white hover:bg-red-500 md:hover:bg-transparent md:hover:text-black md:p-0 md:w-auto dark:text-white dark:hover:text-black dark:focus:text-black md:dark:hover:bg-transparent">
+                                List
+                                <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdownNavbar"
+                                class="h-auto dropdown-content w-full text-center font-3xl bg-white mt-2 h-auto font-semibold shadow dark:bg-red-500">
+                                <a href="#"
+                                    class="w-full bg-white border-2 border-red-500 rounded-lg hover:bg-red-500 dark:hover:bg-red-500 hover:text-white">Cashiers</a>
+                                <a href="#"
+                                    class="w-full m-auto mx-0.5 my-0.5 py-0.5 bg-white border-2 border-red-500 rounded-lg hover:bg-red-500 dark:hover:bg-red-500 hover:text-white">Drinks</a>
+                                <a href="#"
+                                    class="w-full m-auto mx-0.5 my-0.5 py-0.5 bg-white border-2 border-red-500 rounded-lg hover:bg-red-500 dark:hover:bg-red-500 hover:text-white">Foods</a>
+                            </div>
+                        </li>
+                        <li class="mt-[15px]">
+                            <button onclick="myFunction_1()"
+                                class="dropbtn w-full border-red-2 rounded-lg flex items-center justify-between py-2 pl-3 pr-4 text-2xl text-white hover:bg-red-500 md:hover:bg-transparent md:hover:text-black md:p-0 md:w-auto dark:text-white dark:hover:text-black dark:focus:text-black md:dark:hover:bg-transparent">
+                                Create
+                                <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdownNavbar-1"
+                                class="h-auto dropdown-content w-[70px] text-center font-3xl bg-white mt-2 h-auto font-semibold shadow dark:bg-red-500">
+                                <a href="#"
+                                    class="w-full bg-white border-2 border-red-500 rounded-lg hover:bg-red-500 dark:hover:bg-red-500 hover:text-white">Cashier</a>
+                                <a href="#"
+                                    class="w-full m-auto mx-0.5 my-0.5 py-0.5 bg-white border-2 border-red-500 rounded-lg hover:bg-red-500 dark:hover:bg-red-500 hover:text-white">Drink</a>
+                                <a href="#"
+                                    class="w-full m-auto mx-0.5 my-0.5 py-0.5 bg-white border-2 border-red-500 rounded-lg hover:bg-red-500 dark:hover:bg-red-500 hover:text-white">Food</a>
+                                <a href="#"
+                                    class="w-full m-auto mx-0.5 my-0.5 py-0.5 bg-white border-2 border-red-500 rounded-lg hover:bg-red-500 dark:hover:bg-red-500 hover:text-white">Category</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/admin/homepage"
+                                class="block py-2 pl-3 pr-4 text-white bg-red-500 text-2xl rounded md:bg-transparent md:text-white md:p-0 md:dark:text-white md:dark:bg-transparent hover:text-black"
+                                aria-current="page">Oder History</a>
+                        </li>
+                        <li>
+                            <a href="/admin/homepage"
+                                class="block py-2 pl-3 pr-4 text-white bg-red-500 text-2xl rounded md:bg-transparent md:text-white md:p-0 md:dark:text-white md:dark:bg-transparent hover:text-black"
+                                aria-current="page">Manage Table</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="py-1">
+                    <a href="/logout"
+                        class="block px-4 py-2 font-semibold text-2xl text-white hover:bg-red-500 dark:hover:bg-red-500 dark:text-white dark:hover:text-black">Log
+                        out</a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("dropdownNavbar").classList.toggle("show");
+        }
+
+        function myFunction_1() {
+            document.getElementById("dropdownNavbar-1").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
