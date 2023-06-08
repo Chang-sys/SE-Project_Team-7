@@ -93,7 +93,8 @@
 <body>
 
     <div id="content" hidden>
-        <a href="javascript:void(0)" onclick="closeContent()" class="flex flex-row-reverse px-3 pb-3 text-2xl font-bold text-red-500 relative hover:text-3xl">X</a>
+        <a href="javascript:void(0)" onclick="closeContent()"
+            class="flex flex-row-reverse px-3 pb-3 text-2xl font-bold text-red-500 relative hover:text-3xl">X</a>
         <a href="/logout" class="m-[30px]">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:svgjs="http://svgjs.com/svgjs" width="128" height="128" x="0" y="0" viewBox="0 0 512 512"
@@ -116,7 +117,7 @@
                 </g>
             </svg>
         </a>
-       
+
     </div>
 
     <!-- Header -->
@@ -182,11 +183,13 @@
             </div>
 
             <div class="w-full">
-                <button
-                    class="flex flex-row justify-between items-center w-full h-[80px] bg-red-600 text-center text-4xl text-white px-2 py-2">
-                    <p>Payment:</p>
-                    <p>$0</p>
-                </button>
+                <a href="/employee/invoice">
+                    <button
+                        class="flex flex-row justify-between items-center w-full h-[80px] bg-red-600 text-center text-4xl text-white px-2 py-2">
+                        <p>Payment:</p>
+                        <p>$0</p>
+                    </button>
+                </a>
             </div>
         </div>
 
@@ -343,7 +346,7 @@
             document.getElementById("body").style.filter = "blur(12px)";
         }
 
-        function closeContent() { 
+        function closeContent() {
             document.getElementById("content").hidden = true;
             document.getElementById("header").style.filter = "blur(0)";
             document.getElementById("body").style.filter = "blur(0)";
