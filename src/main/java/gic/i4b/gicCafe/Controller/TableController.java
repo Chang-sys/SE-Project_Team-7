@@ -11,4 +11,9 @@ public class TableController {
     public ModelAndView tableSelect(){
         return new ModelAndView("tableSelect");
     }
+
+    @GetMapping(path = "/employee/invoice")
+    public ModelAndView invoice(){
+        return new ModelAndView("invoice");
+    }
 }
