@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css">
+    <style>
+        .dropdown-content {
+            display: none;
+        }
+
+        .dropdown-content-1 {
+            display: none;
+        }
+
+
+        .show {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .upload-btn {
+            background-color: #f56565;
+        }
+
+        #uploadButton:hover {
+            color: black;
+            border: 2px red;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-red-500">
+        <nav class="h-20 min-h-full bg-red-500 border-red-200 dark:bg-red-500 dark:border-red-500">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4">
+                <div class="flex items-center">
+                    <a href="/admin/homepage">
+                        <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo" /> -->
+                        <span
+                            class="self-center text-3xl font-semibold whitespace-nowrap dark:text-white hover:text-black">Admin</span>
+                    </a>
+                </div>
+                <button data-collapse-toggle="navbar-dropdown" type="button"
+                    class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-dropdown" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+                <div class="w-full h-20 min-h-full border-red-2 rounded-lg md:block md:w-auto" id="navbar-dropdown">
+                    <ul
+                        class="w-[710px] min-w-full text-center flex flex-col font-semibold p-6 md:flex-row md:space-x-8 md:mt-0 md:text-sm">
+                        <!-- <li>
+                            <a href="/admin/homepage"
+                                class="block text-white bg-red-500 text-2xl rounded md:bg-transparent md:text-white md:p-0 md:dark:text-white md:dark:bg-transparent hover:text-black"
+                                aria-current="page">Home</a>
+                        </li> -->
+                        <li>
+                            <button onclick="myFunction()"
+                                class="dropbtn w-[94px] border-red-2 rounded-lg flex items-center justify-between text-2xl text-white hover:bg-red-500 md:hover:bg-transparent md:hover:text-black md:p-0 md:w-auto dark:text-white dark:hover:text-black dark:focus:text-black md:dark:hover:bg-transparent">
+                                List
+                                <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                            <!-- Dropdown List menu -->
+                            <div id="dropdownNavbar"
+                                class="w-[60px] h-[70px] dropdown-content text-center font-3xl rounded-b-lg  bg-red-500 mt-2 font-semibold shadow dark:bg-red-500">
+                                <a th:href="@{'/admin/view_employee'}"
+                                    class="w-full bg-red-500 border-2 border-red-500 text-white rounded-lg hover:bg-red-500 dark:hover:bg-red-500 hover:text-black">Cashiers</a>
+                                <a th:href="@{'/admin/list_drink'}"
+                                    class="bg-red-500 border-2 border-red-500 rounded-lg text-white hover:bg-red-500 dark:hover:bg-red-500 hover:text-black">Drinks</a>
+                                <a href="#"
+                                    class="bg-red-500 border-2 border-red-500 rounded-lg text-white hover:bg-red-500 dark:hover:bg-red-500 hover:text-black">Foods</a>
+                            </div>
+                        </li>
+                        <li>
+                            <button onclick="myFunction_1()"
+                                class="dropbtn w-[80px] border-red-2 rounded-lg flex items-center justify-between text-2xl text-white hover:bg-red-500 md:hover:bg-transparent md:hover:text-black md:p-0 md:w-auto dark:text-white dark:hover:text-black dark:focus:text-black active:text-black md:dark:hover:bg-transparent">
+                                Create
+                                <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                            <!-- Dropdown Create -->
+                            <div id="dropdownNavbar-1"
+                                class="w-[80px] h-[70px] dropdown-content text-center rounded-b-lg font-3xl bg-red-500 mt-2 h-auto font-semibold shadow dark:bg-red-500">
+                                <a id="btnCashier" th:herf="@{/admin/create_cashier}"
+                                    class="bg-red-500 border-2 border-red-500 rounded-lg text-white hover:bg-blue-500 hover:text-black">Cashier</a>
+                                <a href="#"
+                                    class="bg-red-500 border-2 border-red-500 rounded-lg text-white hover:bg-blue-500 dark:hover:text-black">Drink</a>
+                                <a href="#"
+                                    class="bg-red-500 border-2 border-red-500 rounded-lg text-white hover:bg-blue-500dark:hover:text-black">Food</a>
+                                <a href="#"
+                                    class="bg-red-500 border-2 border-red-500 rounded-lg text-white hover:bg-blue-500 dark:hover:text-black">Category</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="/admin/homepage"
+                                class="block text-white bg-red-500 text-2xl rounded md:bg-transparent md:text-white md:p-0 md:dark:text-white md:dark:bg-transparent hover:text-black"
+                                aria-current="page">Oder History</a>
+                        </li>
+                        <li>
+                            <a href="/admin/homepage"
+                                class="block text-white bg-red-500 text-2xl rounded md:bg-transparent md:text-white md:p-0 md:dark:text-white md:dark:bg-transparent hover:text-black"
+                                aria-current="page">Manage Table</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="py-1">
+                    <a href="/logout"
+                        class="block px-4 py-2 font-semibold text-2xl text-white hover:bg-red-500 dark:hover:bg-red-500 dark:text-white dark:hover:text-black">Log
+                        out</a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- Create user -->
+    <div id="newCashier">
+        <div class="flex flex-col px-3 py-3 text-2xl font-bold">
+            <h1 class="ml-[208px] pb-2">New Cashier</h1>
+
+            <div class="flex flex-row gap-12 mx-52 p-2 border-2 border-black rounded-lg justify-center items-center">
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">Unsuccessful create new cashier !!!</div>
+                </div>
+                <div th:if="${param.success}">
+                    <div class="alert alert-success">Successful create new cashier...</div>
+                </div>
+
+                <form class="space-y-2 md:space-y-4">
+                    <div>
+                        <label for="firstname"
+                            class="text-lg block mb-2 text-sm font-medium text-gray-900 dark:text-black">Firstname:</label>
+                        <input type="text" name="firstname" id="firstname"
+                            class="bg-white border text-black sm:text-lg rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-1.5 dark:bg-white dark:border-blue-300 dark:placeholder-gray-200 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-300"
+                            placeholder="Jackie" required="">
+                    </div>
+
+                    <div>
+                        <label for="lastname"
+                            class="text-lg block mb-2 text-sm font-medium text-gray-900 dark:text-black">Lastname:</label>
+                        <input type="text" name="lastname" id="lastname"
+                            class="bg-white border border-blue-500 text-black sm:text-lg rounded-lg focus:ring-red-600 focus:border-blue-600 block w-full p-1.5 dark:bg-white dark:border-blue-600 dark:placeholder-gray-200 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Chan" required="">
+                    </div>
+
+                    <div>
+                        <label for="sex"
+                            class="text-lg block mb-2 text-sm font-medium text-gray-900 dark:text-black">Sex:</label>
+                        <select name="sex" id="sex"
+                            class="bg-white border border-blue-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-200 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option class="text-gray-200 font-normal" disabled selected>Select an option</option>
+                            <option value="Male">Male</option>
+                            <option value="Woman">Woman</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="dob"
+                            class="text-lg block mb-2 text-sm font-medium text-gray-900 dark:text-black">Date
+                            Of Brith:</label>
+                        <input type="date" name="dob"
+                            class="bg-white border border-blue-500 text-black text-base sm:text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-1.5 dark:bg-white dark:border-blue-600 dark:placeholder-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    </div>
+
+                    <div>
+                        <label for="login"
+                            class="text-lg block mb-2 text-sm font-medium text-gray-900 dark:text-black">Login:</label>
+                        <input type="text" name="login" id="login"
+                            class="bg-white border border-blue-500 text-black sm:text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-1.5 dark:bg-white dark:border-blue-600 dark:placeholder-gray-200 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Jackie_Chan" required="">
+                    </div>
+
+                    <div>
+                        <label for="password"
+                            class="text-lg block mb-2 text-sm font-medium text-gray-900 dark:text-black">Password:</label>
+                        <input type="text" name="password" id="password"
+                            class="bg-white border border-blue-500 text-black sm:text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-1.5 dark:bg-white dark:border-red-600 dark:placeholder-gray-200 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="******" required="">
+                    </div>
+
+                    <div class="text-white text-lg font-bold flex flex-row space-x-12">
+                        <button type="submit"
+                            class="text-center w-[100px] h-[50px] bg-gradient-to-r from-red-300 to-red-500 border-2 rounded-xl hover:border-red-500">Ok</button>
+                        <button
+                            class="text-center w-[100px] h-[50px] text-black border-2 hover:border-red-500 rounded-xl hover:bg-gradient-to-r from-red-200 to-red-500 border-3"><a
+                                th:href="@{'/admin/homepage'}">Cancel</a></button>
+                    </div>
+                </form>
+
+                <div class="flex justify-center">
+                    <div
+                        class="flex flex-col justify-center items-center w-96 bg-white text-center border border-gray-300 rounded-lg p-4">
+                        <div class="border-2 border-gray-300 border-dashed rounded-md p-4">
+                            <div id="imagePreview" class="mt-4 hidden flex justify-center items-center">
+                                <img id="previewImg" class="w-[200px] h-[150px] object-cover rounded-lg"
+                                    alt="Image Preview">
+                            </div>
+                            <input type="file" id="fileInput" class="hidden">
+                            <div id="dropArea" class="h-48 flex flex-col items-center justify-center">
+                                <svg class="w-[64px] h-[64px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    id="upload">
+                                    <path
+                                        d="M8.71,7.71,11,5.41V15a1,1,0,0,0,2,0V5.41l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-4-4a1,1,0,0,0-.33-.21,1,1,0,0,0-.76,0,1,1,0,0,0-.33.21l-4,4A1,1,0,1,0,8.71,7.71ZM21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Z">
+                                    </path>
+                                </svg>
+                                <p id="dropImage" class="text-gray-400 text-xl">Drag/Drop the image here</p>
+                            </div>
+                            <button id="uploadButton"
+                                class="mt-3 ml-[26px] py-2 px-4 rounded text-white border-2 border-red-500 font-medium hover:text-black upload-btn hidden ">Upload</button>
+                        </div>
+                        <label for="fileInput"
+                            class="block mb-2 mt-3 p-2 rounded-lg text-sm font-medium border border-black cursor-pointer">Choose
+                            an image</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        // document.getElementById('newCashier').hidden = true;
+
+        function myFunction() {
+            document.getElementById("dropdownNavbar").classList.toggle("show");
+            document.getElementById("dropdownNavbar-1").classList.remove("show");
+            document.getElementById('newCashier').hidden = true;
+        }
+
+        function myFunction_1() {
+            document.getElementById("dropdownNavbar-1").classList.toggle("show");
+            document.getElementById("dropdownNavbar").classList.remove("show");
+            document.getElementById('newCashier').hidden = true;
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('fileInput');
+        const uploadButton = document.getElementById('uploadButton');
+        const previewImg = document.getElementById('previewImg');
+        const imagePreview = document.getElementById('imagePreview');
+
+        dropArea.addEventListener('dragenter', handleDragEnter);
+        dropArea.addEventListener('dragover', handleDragOver);
+        dropArea.addEventListener('dragleave', handleDragLeave);
+        dropArea.addEventListener('drop', handleDrop);
+        fileInput.addEventListener('change', handleFileChange);
+        uploadButton.addEventListener('click', handleUploadButtonClick);
+
+        function handleDragEnter(e) {
+            e.preventDefault();
+            dropArea.classList.add('border-blue-500');
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            dropArea.classList.remove('border-blue-500');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            dropArea.classList.remove('border-blue-500');
+
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFiles(files);
+            }
+        }
+
+        function handleFileChange(e) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                handleFiles(files);
+            }
+        }
+
+        function handleFiles(files) {
+            const selectedFile = files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                previewImg.src = e.target.result;
+            };
+
+            reader.readAsDataURL(selectedFile);
+
+            document.getElementById('dropArea').style.display = 'none';
+
+            imagePreview.classList.remove('hidden');
+            uploadButton.classList.remove('hidden');
+        }
+
+        function handleUploadButtonClick() {
+            // Handle the file upload or any other processing here
+            alert('File uploaded!');
+        }
+
+        document.getElementById('btnCashier').onclick = () => {
+            document.getElementById("dropdownNavbar-1").classList.remove("show");
+            document.getElementById('newCashier').hidden = false;
+        }
+    </script>
+
+</body>
+
+</html>
