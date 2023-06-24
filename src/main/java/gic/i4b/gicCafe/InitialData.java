@@ -25,7 +25,6 @@ public class InitialData implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        // TODO Auto-generated method stub
             
         if ( repository.findAll().isEmpty() ){
             Employee admin = new Employee("Admin", "Chang", "ADMIN", "Male", "1999-01-01", "Admin", passwordEncoder.encode(("123")), null);

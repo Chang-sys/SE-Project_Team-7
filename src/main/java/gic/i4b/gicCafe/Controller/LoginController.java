@@ -18,4 +18,9 @@ public class LoginController {
         return new ModelAndView("login");
     }
 
+    @GetMapping(path = "/")
+    public Object loginV2() {
+        return new ModelAndView("login");
+    }
+
 }
